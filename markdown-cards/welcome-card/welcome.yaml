@@ -1,0 +1,30 @@
+type: markdown
+content: >-
+  {% set time = now().hour %}
+
+  {% if (time >= 22) %}
+    **{{ [ 'Good evening', 'Evening', 'Hai', 'Heyoo', 'GTFTS' ] | random }}, {{ user }}**!
+  {% elif (time >= 12) %}
+    **{{ [ 'Good afternoon', 'Afternoon', 'Ahoy there' ] | random }}, {{ user }}**!
+  {% elif (time >= 5) %}
+    **{{ [ 'Good morning', 'Morning', 'Its early', 'Top of the morning to you', 'Hello', 'Hi there' ] | random }}, {{ user }}**!
+  {% else %}
+    **{{ [
+      "Hello",
+      "Hi there",
+      "Greetings",
+      "Hey",
+      "What is up though",
+      "Nice to see you",
+      "Ahoy",
+      "What's up",
+      "Youre looking snazzy there",
+      "Hi",
+      "Hello there",
+      "Are you even reading",
+      "What's happening",        
+      "Good to see you"
+    ] | random }}, {{ user }}**! 
+  {% endif %}The forecast at Colinward today says: {{
+  states('sensor.colinward_condition_day_0') }}. Probably drink more water.
+text_only: true
